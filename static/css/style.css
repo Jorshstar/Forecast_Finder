@@ -12,7 +12,7 @@ body{
 }
 .container{
     font-family: 'rubik', 'sans-serif';
-        background-image: url('/images/clear_sky.jpg');
+        background-image: url('./static/images/clear_sky.jpg');
         height: 600px;
         width: 1000px;
         position: relative;
