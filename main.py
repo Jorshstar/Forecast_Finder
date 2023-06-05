@@ -73,5 +73,4 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    #location = get_location("lagos")
-    #get_future_forecast(location)
+    
