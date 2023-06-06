@@ -69,7 +69,7 @@ body{
     margin-top: 50px;
 }
 .cards .card{
-    width: 150px;
+    width: 100px;
     height: 180px;
     border-radius: 20px;
     color: #fff;
@@ -79,8 +79,9 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     margin-top: -44px;
-    
+    margin-left: 60px;
 }
 .card h2{
     font-size: 15px;
