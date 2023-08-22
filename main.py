@@ -5,8 +5,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-# Api_key = os.getenv('API_KEY')
 Api_key = '50c41be902c0b69cdef5761dfc80f068'
+
 
 app = Flask(__name__)
 
@@ -24,13 +24,13 @@ def get_future_forecast(location):
     url = f"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&units=metric&appid={Api_key}"
     response = requests.get(url)
     forecast = response.json()
-    days = set()
+    day = []
     mini_temp = {}
     maxi_temp = {}
     for item in range(0, len(forecast["list"])):
         time = datetime.datetime.fromtimestamp(forecast["list"][item]["dt"])
         current_day = time.strftime("%A")
-        days.add(current_day)
+        # days.add(current_day)
 
         min_temp = forecast["list"][item]["main"]["temp_min"]
         max_temp = forecast["list"][item]["main"]["temp_max"]
@@ -39,15 +39,11 @@ def get_future_forecast(location):
             maxi_temp[current_day] = max_temp
         if current_day not in mini_temp or min_temp < mini_temp[current_day]:
             mini_temp[current_day] = min_temp
-
-    def custom_sort_key(day):
-        order = ['Monday', 'Tuesday', 'Wednesday',
-                 'Thursday', 'Friday', 'Saturday', 'Sunday']
-        return order.index(day)
-
-    day = sorted(days, key=custom_sort_key)
+    for days in range(0, len(forecast["list"]), 8):
+        time = datetime.datetime.fromtimestamp(forecast["list"][days]["dt"])
+        current_day = time.strftime("%A")
+        day.append(current_day)
     temp = [mini_temp, maxi_temp]
-    # print(temp, day)
     return (forecast, temp, day)
 
 

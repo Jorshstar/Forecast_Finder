@@ -10,7 +10,7 @@
 body{
     background-color: rgb(165, 75, 75);
 }
-.container{
+.container-lg{
     font-family: 'rubik', 'sans-serif';
         background-image: url('/static/images/clear_sky.jpg');
         height: 600px;

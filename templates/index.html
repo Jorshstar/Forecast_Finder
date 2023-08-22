@@ -12,7 +12,7 @@
 
 <body class="bg-dark">
   <div class="forecast__body1">
-  <div class="container my-5 ">
+  <div class="container-lg my-5">
     <div class="navbar">
       <form class="d-flex" role="search" action="/" method="get">
         <div class="input-group">
@@ -23,6 +23,7 @@
         </div>
       </form>
     </div>
+    
     <div class="forecast__body  text-center">
       <h1 class="forecast__city text-large">
         {{location[0].name}} {{ location[0].state }}, {{location[0].country}}
@@ -41,60 +42,13 @@
       <p> Max {{ weather.main.temp_max }}&#176</p>
     </div>
     <div class="cards d-flex mt-sm-5 justify-content-between gap-1" id="weather-cards">
-    {% if temp[0]|length > 5 %}
-      <div class="card">
-        <h2 class="day-name text-white">{{ day[1] }}</h2>
-        <div class="card-icon">
-          <img src="http://openweathermap.org/img/w/{{ forecast.list[7].weather[0].icon }}.png" alt="" />
-        </div>
-        <div class="day-temp text-white">
-          <h2 class="temp">Min {{ temp[0][day[1]] }}&#176c Max {{temp[1][day[1]] }}&#176c</h2>
-        </div>
-      </div>
-      <div class="card">
-        <h2 class="day-name text-white">{{ day[2] }}</h2>
-        <div class="card-icon">
-          <img src="http://openweathermap.org/img/w/{{ forecast.list[15].weather[0].icon }}.png" alt="" />
-        </div>
-        <div class="day-temp text-white">
-          <h2 class="temp">Min {{ temp[0][day[2]] }}&#176c Max {{temp[1][day[2]] }}&#176c</h2>  
-        </div>
-      </div>
-      <div class="card">
-        <h2 class="day-name text-white">{{ day[3] }}</h2>
-        <div class="card-icon">
-          <img src="http://openweathermap.org/img/w/{{ forecast.list[23].weather[0].icon }}.png" alt="" />
-        </div>
-        <div class="day-temp text-white">
-          <h2 class="temp">Min {{ temp[0][day[3]] }}&#176c Max {{temp[1][day[3]] }}&#176c</h2>
-        </div>
-      </div>
-      <div class="card">
-        <h2 class="day-name text-white">{{ day[4] }}</h2>
-        <div class="card-icon">
-          <img src="http://openweathermap.org/img/w/{{ forecast.list[31].weather[0].icon }}.png" alt="" />
-        </div>
-        <div class="day-temp text-white">
-          <h2 class="temp">Min {{ temp[0][day[4]] }}&#176c Max {{temp[1][day[4]] }}&#176c</h2>
-        </div>
-      </div>
-      <div class="card">
-        <h2 class="day-name text-white">{{ day[5] }}</h2>
-        <div class="card-icon">
-          <img src="http://openweathermap.org/img/w/{{ forecast.list[39].weather[0].icon }}.png" alt="" />
-        </div>
-        <div class="day-temp text-white">
-          <h2 class="temp">Min {{ temp[0][day[5]] }}&#176c Max {{temp[1][day[5]] }}&#176c</h2>
-        </div>
-      </div>
-    {% else %}
       <div class="card">
         <h2 class="day-name text-white">{{ day[0] }}</h2>
         <div class="card-icon">
           <img src="http://openweathermap.org/img/w/{{ forecast.list[7].weather[0].icon }}.png" alt="" />
         </div>
         <div class="day-temp text-white">
-        <h2 class="temp">Min {{ temp[0][day[0]] }}&#176c Max {{temp[1][day[0]] }}&#176c</h2>
+          <h2 class="temp">Min {{ temp[0][day[0]] }}&#176c Max {{temp[1][day[0]] }}&#176c</h2>
         </div>
       </div>
       <div class="card">
@@ -133,7 +87,6 @@
           <h2 class="temp">Min {{ temp[0][day[4]] }}&#176c Max {{temp[1][day[4]] }}&#176c</h2>
         </div>
       </div>
-    {% endif %}
     </div>
   </div>
 </div>
